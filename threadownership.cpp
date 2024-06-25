@@ -17,7 +17,7 @@ void hello()
 }
 //function taking thread object as argument 
 //the object must be moved inside the argument
-void func(std::thread t)
+void func(std::thread&& t)
 {
     std::cout << "Received thread ID: "<< t.get_id() << "\n";
     //The function argument now owns the system thread (used std::move), 
@@ -30,7 +30,8 @@ int main()
     
     //Display the child thread ID
     std::cout << "Hello thread has ID: " << thr.get_id() << "\n";
-    
+
+    //moving the thread by rvalue reference
     func(std::move(thr));
     return 0;
 }
