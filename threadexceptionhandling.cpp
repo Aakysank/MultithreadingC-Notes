@@ -20,6 +20,8 @@ void hello()
     std::cout << "Hello world" <<  "\n";
 }
 
+//thread to thread exception handling cannot be done, if a function that is running in different thread and that function has exception, make sure exception handling is done perfectly for that function
+//wrong coding
 //void hello()
 //{
       //throw std::exception();
