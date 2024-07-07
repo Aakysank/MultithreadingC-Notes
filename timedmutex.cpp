@@ -1,8 +1,8 @@
 #include<iostream>
 #include<thread>
 #include<mutex>
-
-std::mutex mt;
+#include<chrono>
+std::timed_mutex mt;
 void task1()
 {
   std::cout << "Task 1 is trying to lock the mutex" << std::endl;
