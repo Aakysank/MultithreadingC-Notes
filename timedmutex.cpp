@@ -17,7 +17,7 @@ void task1()
 
 void task2()
 {
-  std::this_thread::sleep_for(std::chrono::seconds(5));
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
   std::cout << "Task 2 is trying to lock the mutex" << std::endl;
   while (!mt.try_lock_for(std::chrono::seconds(1)))
     std::cout << "Task 2 is unable to lock the mutex" << std::endl;
