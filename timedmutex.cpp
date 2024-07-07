@@ -7,21 +7,23 @@ void task1()
 {
   std::cout << "Task 1 is trying to lock the mutex" << std::endl;
   
-  mutex.lock();
-  std::cout << "Task 1 has successfully locked the mutex" << std::endl;
-  mutex.unlock();
+  mt.lock();
+  std::cout << "Task 1 has successfully locked the mutex" << std::endl;s
+  std::this_thread::sleep_for(std::chrono::seconds(5));
+  mt.unlock();
   std::cout << "Task 1 has successfully unlocked the mutex" << std::endl;
   return;
 }
 
 void task2()
 {
+  std::this_thread::sleep_for(std::chrono::seconds(5));
   std::cout << "Task 2 is trying to lock the mutex" << std::endl;
-  while (!mutex.try_lock_for(std::chrono::seconds(1)))
+  while (!mt.try_lock_for(std::chrono::seconds(1)))
     std::cout << "Task 2 is unable to lock the mutex" << std::endl;
 
   std::cout << "Task 2 has successfully locked the mutex" << std::endl;
-  mutex.unlock();
+  mt.unlock();
   std::cout << "Task 2 has successfully unlocked the mutex" << std::endl;
   return;
 }
